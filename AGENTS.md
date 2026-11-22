@@ -6,7 +6,7 @@ It is also a portfolio project: the goal is to exercise applied AI end to end in
 
 ## Docs
 
-- [docs/context.md](docs/context.md): goals, decisions so far, open questions.
+- [ROADMAP.md](ROADMAP.md): what we build, in order.
 - [docs/workflow.md](docs/workflow.md): branches, commits, PRs, CI. Read before any git operation.
 - [docs/nestjs.md](docs/nestjs.md): NestJS 12 notes (ESM, Vitest, first-party packages, Observe).
 
