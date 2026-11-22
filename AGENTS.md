@@ -9,3 +9,17 @@ It is also a portfolio project: the goal is to exercise applied AI end to end in
 - [docs/context.md](docs/context.md): goals, decisions so far, open questions.
 - [docs/workflow.md](docs/workflow.md): branches, commits, PRs, CI. Read before any git operation.
 - [docs/nestjs.md](docs/nestjs.md): NestJS 12 notes (ESM, Vitest, first-party packages, Observe).
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues (`joaovitorwoliveira/shelf`), managed with the `gh` CLI. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `GLOSSARY.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
