@@ -14,6 +14,7 @@ How work moves from an idea to `master`. Agents follow these rules too.
 
 - Commits follow Conventional Commits: `<type>(<scope>): <summary>`, imperative, lowercase, no trailing period.
 - PRs into `development` are squash-merged. The PR title becomes the commit on `development`, so it follows the same format.
+- PR bodies follow the `mattpocock-skills:pr` skill template: Summary (smallest visual: diff, tree or diagram), Evidence (before and after), Merge Danger (one-way or two-way door, blast radius). Load the skill before writing one.
 - A PR body links its issue with `Closes #<n>`.
 - Release: open a PR from `development` to `master` titled `chore(release): <summary>`.
 
