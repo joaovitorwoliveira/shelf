@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [development, master]
+    types: [opened, edited, synchronize, reopened]
+  push:
+    branches: [development, master]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm build
+      - run: pnpm test
+      - run: pnpm test:e2e
+
+  conventions:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch name and PR title
+        env:
+          HEAD: ${{ github.head_ref }}
+          BASE: ${{ github.base_ref }}
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          types='feat|fix|refactor|test|docs|chore|ci|perf'
+          branch_re="^(${types})/[a-z0-9-]+$"
+          title_re="^(${types})(\([a-z0-9-]+\))?!?: .+"
+
+          if [[ "$BASE" == master && "$HEAD" != development ]]; then
+            echo "master only accepts PRs from development, got '$HEAD'"
+            exit 1
+          fi
+          if [[ "$HEAD" != development && ! "$HEAD" =~ $branch_re ]]; then
+            echo "Branch '$HEAD' must match <type>/<slug>, e.g. feat/12-notion-sync"
+            exit 1
+          fi
+          if [[ ! "$TITLE" =~ $title_re ]]; then
+            echo "PR title '$TITLE' must follow Conventional Commits: <type>(<scope>): <summary>"
+            exit 1
+          fi
