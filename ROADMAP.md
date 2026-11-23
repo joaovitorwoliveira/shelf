@@ -4,7 +4,7 @@ What we build, in order. Each item becomes a GitHub issue when work on it starts
 
 ## Phase 0: Spike
 
-- [ ] Choose the LLM and embedding provider: check whether Kimi covers chat with structured output, prompt caching and embeddings; pick a separate embedding provider if not. Record the choice in an ADR.
+- [x] Choose the LLM and embedding provider: check whether Kimi covers chat with structured output, prompt caching and embeddings; pick a separate embedding provider if not. Record the choice in an ADR.
 
 ## Phase 1: MVP
 
