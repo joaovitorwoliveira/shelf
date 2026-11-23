@@ -29,6 +29,9 @@ jobs:
           --health-retries 15
     env:
       DATABASE_URL: postgres://shelf:shelf@localhost:5432/shelf
+      # Tests replace the Notion client; these only satisfy env validation.
+      NOTION_TOKEN: unused-in-ci
+      NOTION_DATA_SOURCE_ID: unused-in-ci
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
