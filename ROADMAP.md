@@ -8,8 +8,8 @@ What we build, in order. Each item becomes a GitHub issue when work on it starts
 
 ## Phase 1: MVP
 
-- [ ] Config and Postgres + pgvector with Drizzle, run locally with docker compose.
-- [ ] Sync Readings from Notion, triggered by hand.
+- [x] Config and Postgres + pgvector with Drizzle, run locally with docker compose.
+- [x] Sync Readings from Notion, triggered by hand.
 - [ ] Resolve Readings to Works: an LLM normalizes the typed title, Open Library confirms it, Google Books is the fallback. Unconfirmed Matches are flagged.
 - [ ] Enrich Works: description, subjects, page count, year.
 - [ ] Pull Candidates from the Open Library subjects of the Works read.

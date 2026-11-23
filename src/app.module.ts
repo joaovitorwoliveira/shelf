@@ -5,6 +5,7 @@ import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { envSchema } from './config/env.js';
 import { DatabaseModule } from './db/database.module.js';
+import { ReadingsModule } from './readings/readings.module.js';
 
 export const { ObserveModule, ObserveInstrument } = createObserveModule();
 
@@ -20,6 +21,7 @@ export const { ObserveModule, ObserveInstrument } = createObserveModule();
     }),
     ConfigModule.forRoot({ isGlobal: true, validationSchema: envSchema }),
     DatabaseModule,
+    ReadingsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
