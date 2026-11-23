@@ -1,0 +1,19 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: shelf
+      POSTGRES_PASSWORD: shelf
+      POSTGRES_DB: shelf
+    ports:
+      - '5432:5432'
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U shelf -d shelf']
+      interval: 2s
+      timeout: 5s
+      retries: 15
+
+volumes:
+  db-data:
