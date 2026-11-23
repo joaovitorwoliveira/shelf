@@ -6,5 +6,7 @@ export default defineConfig({
     globals: true,
     root: './',
     include: ['**/*.e2e-spec.ts'],
+    // Every e2e file boots the app against the same database, and the app migrates it at startup.
+    fileParallelism: false,
   },
 });
